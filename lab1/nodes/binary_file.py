@@ -1,9 +1,16 @@
-class BinaryFile:
-    def __init__(self):
+from lab1.nodes.Node import Node
+from lab1.nodes.directory import Directory
+
+
+class BinaryFile(Node):
+    def __init__(self, name: str, content: str, parent: Directory):
         pass
-    def __delete__(self, instance):
+
+    def delete(self):
         pass
-    def move(self):
+
+    def move(self, new_parent: Directory):
         pass
-    def getContent(self):
+
+    def get_content(self) -> str:
         pass

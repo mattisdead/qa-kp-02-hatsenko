@@ -1,11 +1,25 @@
-class Directory:
-    def __init__(self, name: str, path: str, elementCapacity: int):
-        self.name = name
-        self.path = path
-        self.elementCapacity = elementCapacity
-    def __delete__(self, instance):
-        del self
-    def getContent(self):
+from typing import List
+
+from lab1.nodes.Node import Node
+
+
+class Directory(Node):
+    content: List[Node]
+
+    def __init__(self, name: str, parent: "Directory", max_element_capacity: int):
         pass
-    def moveContent(self):
+
+    def add_node(self, node: Node):
+        pass
+
+    def delete(self):
+        pass
+
+    def get_content(self, level: int) -> str:
+        pass
+
+    def delete_node(self, node: Node):
+        pass
+
+    def move_node(self, node: Node, path: "Directory"):
         pass
