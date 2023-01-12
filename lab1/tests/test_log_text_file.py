@@ -30,7 +30,7 @@ def test_get_content():
     directory = Directory("dir", None, 5)
     log_text_file = LogTextFile("LogTextFile", directory, "1234")
 
-    assert log_text_file.content == "1234"
+    assert log_text_file.get_content() == "1234"
 
 def test_append():
     directory = Directory("dir", None, 5)

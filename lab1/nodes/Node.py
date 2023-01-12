@@ -1,7 +1,9 @@
 class Node:
     name: str
     def __eq__(self, other):
-        pass
+        if type(other) == Node:
+            return False
+        return self.name == other.name
 
     def __str__(self) -> str:
-        pass
+        return self.name

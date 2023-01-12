@@ -4,13 +4,21 @@ from lab1.nodes.directory import Directory
 
 class BinaryFile(Node):
     def __init__(self, name: str, content: str, parent: Directory):
-        pass
+        if parent is None:
+            raise Exception("No parent directory provided")
+        self.name = name
+        self.content = content
+        self.parent = parent
+        parent.add_node(self)
 
     def delete(self):
-        pass
+        self.parent.delete_node(self)
+        del self
 
     def move(self, new_parent: Directory):
-        pass
+        self.parent.delete_node(self)
+        new_parent.add_node(self)
+        self.parent = new_parent
 
     def get_content(self) -> str:
-        pass
+        return self.content
