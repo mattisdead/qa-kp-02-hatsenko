@@ -2,49 +2,49 @@ from lab1.nodes.directory import Directory
 
 
 def test_dir_init():
-    dirParent = Directory("ParentDir", None, 5)
-    dirChild = Directory("ChildDir", dirParent, 5)
+    dir_parent = Directory("ParentDir", None, 5)
+    dir_child = Directory("ChildDir", dir_parent, 5)
 
-    assert dirChild.parent == dirParent
+    assert dir_child.parent == dir_parent
 
 
 def test_add_node():
-    dirParent = Directory("ParentDir", None, 5)
-    dirChild = Directory("ChildDir", None, 5)
-    dirParent.add_node(dirChild)
-    assert dirChild.parent == dirParent
-    assert dirParent.content.__contains__(dirChild)
+    dir_parent = Directory("ParentDir", None, 5)
+    dir_child = Directory("ChildDir", None, 5)
+    dir_parent.add_node(dir_child)
+    assert dir_child.parent == dir_parent
+    assert dir_parent.content.__contains__(dir_child)
 
 
 def test_add_node_when_maximum_reached():
-    dirParent = Directory("ParentDir", None, 1)
-    dirChild1 = Directory("ChildDir", None, 1)
-    dirChild2 = Directory("ChildDir2", None, 1)
-    dirParent.add_node(dirChild1)
+    dir_parent = Directory("ParentDir", None, 1)
+    dir_child1 = Directory("ChildDir", None, 1)
+    dir_child2 = Directory("ChildDir2", None, 1)
+    dir_parent.add_node(dir_child1)
     try:
-        dirParent.add_node(dirChild2)
+        dir_parent.add_node(dir_child2)
     except OverflowError:
         pass
-    assert dirParent.content.__contains__(dirChild2) == False
+    assert dir_parent.content.__contains__(dir_child2) is False
 
 
 def test_remove_node():
-    dirParent = Directory("ParentDir", None, 5)
-    dirChild = Directory("ChildDir", None, 5)
+    dir_parent = Directory("ParentDir", None, 5)
+    dir_child = Directory("ChildDir", None, 5)
 
-    dirParent.add_node(dirChild)
-    dirParent.delete_node(dirChild)
+    dir_parent.add_node(dir_child)
+    dir_parent.delete_node(dir_child)
 
-    assert dirParent.content.__contains__(dirChild) == False
+    assert dir_parent.content.__contains__(dir_child) is False
 
 
 def test_move_node():
-    dirParentInitial = Directory("ParentDirInitial", None, 5)
-    dirParentNew = Directory("ParentDirNew", None, 5)
-    dirChild = Directory("ChildDir", None, 5)
+    dir_parent_initial = Directory("ParentDirInitial", None, 5)
+    dir_parent_new = Directory("ParentDirNew", None, 5)
+    dir_child = Directory("ChildDir", None, 5)
 
-    dirParentInitial.add_node(dirChild)
-    dirParentInitial.move_node(dirChild, dirParentNew)
+    dir_parent_initial.add_node(dir_child)
+    dir_parent_initial.move_node(dir_child, dir_parent_new)
 
-    assert dirParentInitial.content.__contains__(dirChild) == False
-    assert dirParentNew.content.__contains__(dirChild)
+    assert dir_parent_initial.content.__contains__(dir_child) is False
+    assert dir_parent_new.content.__contains__(dir_child)

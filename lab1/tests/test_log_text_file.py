@@ -9,12 +9,14 @@ def test_log_text_file_init():
     assert log_text_file.name == "LogTextFile"
     assert directory.content.__contains__(log_text_file)
 
+
 def test_delete():
     directory = Directory("dir", None, 5)
     log_text_file = LogTextFile("LogTextFile", directory, "1234")
     log_text_file.delete()
 
     assert directory.content.__contains__(log_text_file) is False
+
 
 def test_move():
     directory = Directory("dir", None, 5)
@@ -26,11 +28,13 @@ def test_move():
     assert directory2.content.__contains__(log_text_file)
     assert directory.content.__contains__(log_text_file) is False
 
+
 def test_get_content():
     directory = Directory("dir", None, 5)
     log_text_file = LogTextFile("LogTextFile", directory, "1234")
 
     assert log_text_file.get_content() == "1234"
+
 
 def test_append():
     directory = Directory("dir", None, 5)

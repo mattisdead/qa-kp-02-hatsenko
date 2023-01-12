@@ -1,7 +1,8 @@
+from lab1.nodes.Node import Node
 from lab1.nodes.directory import Directory
 
 
-class LogTextFile:
+class LogTextFile(Node):
     def __init__(self, name: str, parent: Directory, content: str):
         if parent is None:
             raise Exception("No parent direction provided")
@@ -10,7 +11,7 @@ class LogTextFile:
         self.parent.add_node(self)
         self.content = content
 
-    def __delete__(self, instance):
+    def delete(self):
         self.parent.delete_node(self)
         del self
 
