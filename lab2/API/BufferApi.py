@@ -16,7 +16,8 @@ class BufferApi(Resource):
             curr_parent_dir = parent_directory
         else:
             curr_parent_dir = parent_directory.find_directory_in_content(request.form["parent"])
-        curr_buffer_file = BufferFile(name, request.form["content"], curr_parent_dir)
+
+        curr_buffer_file = BufferFile(name, curr_parent_dir, 10)
         return {"Buffer file has been added to ": request.form["parent"]}
 
     def put(self, name: str):
