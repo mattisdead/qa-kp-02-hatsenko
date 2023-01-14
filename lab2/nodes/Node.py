@@ -1,5 +1,6 @@
 class Node:
     name: str
+
     def __eq__(self, other):
         if type(other) == Node:
             return False

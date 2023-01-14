@@ -1,7 +1,6 @@
 from flask import request
 from flask_restful import Resource
 
-
 from global_var import parent_directory
 from nodes.buffer_file import BufferFile
 
@@ -34,7 +33,7 @@ class BufferApi(Resource):
             if directory_to_move_to is not None:
                 buffer_file.move(directory_to_move_to)
             else:
-                return {"Error" : "No directory found with the name: " + request.form["parent"]}
+                return {"Error": "No directory found with the name: " + request.form["parent"]}
 
         return {"Updated": buffer_file.name}
 

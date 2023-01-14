@@ -4,6 +4,7 @@ from flask_restful import Resource
 from nodes.log_text_file import LogTextFile
 from global_var import parent_directory
 
+
 class LogTextApi(Resource):
 
     def get(self, name: str):
@@ -32,7 +33,7 @@ class LogTextApi(Resource):
             if directory_to_move_to is not None:
                 log_text_file.move(directory_to_move_to)
             else:
-                return {"Error" : "No directory found with the name: " + request.form["parent"]}
+                return {"Error": "No directory found with the name: " + request.form["parent"]}
 
         return {"Updated": log_text_file.name}
 
