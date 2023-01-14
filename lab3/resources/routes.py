@@ -1,0 +1,6 @@
+BASE_ROUTE = 'api/fs'
+NODE_ROUTE = 'node'
+DIR_ROUTE = 'directory'
+BIN_FILE_ROUTE = 'binaryfile'
+LOG_FILE_ROUTE = 'logtextfile'
+BUF_FILE_ROUTE = 'bufferfile'
